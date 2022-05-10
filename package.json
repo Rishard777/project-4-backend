@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "pure-react-carousel": "^1.28.1",
     "react-router-dom": "^5.2.0"
   }
 }

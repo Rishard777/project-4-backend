@@ -1,5 +1,9 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./Nav.css";
+import Home from "./Home";
+import Account from "./Account";
+import Cart from "./Cart";
+import Searchbar from "./Searchbar";
 
 function Nav() {
   return (
@@ -11,7 +15,7 @@ function Nav() {
               <Link to="/">Home</Link>
             </div>
 
-            <input className="searchbar" type="text" placeholder="Search..." />
+            <Searchbar />
 
             <div className="link">
               <Link to="/account">Account</Link>
@@ -40,15 +44,3 @@ function Nav() {
 }
 
 export default Nav;
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Account() {
-  return <h2>About</h2>;
-}
-
-function Cart() {
-  return <h2>Users</h2>;
-}

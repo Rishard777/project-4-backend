@@ -1,0 +1,16 @@
+.accountWrapper > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.accountWrapper div > form,
+.accountWrapper div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.login {
+  width: 20vw;
+  margin: 0.5rem;
+}

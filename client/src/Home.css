@@ -22,3 +22,9 @@ h2 {
 .big {
   height: 200vh;
 }
+
+.itemsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+}

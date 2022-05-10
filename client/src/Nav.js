@@ -4,8 +4,11 @@ import Home from "./Home";
 import Account from "./Account";
 import Cart from "./Cart";
 import Searchbar from "./Searchbar";
+import { useState } from "react";
 
 function Nav() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <Router>
       <div>
@@ -29,7 +32,7 @@ function Nav() {
 
         <Switch>
           <Route path="/account">
-            <Account />
+            <Account loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/cart">
             <Cart />

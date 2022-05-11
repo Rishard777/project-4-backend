@@ -1,0 +1,30 @@
+.carousel {
+  height: 500px;
+  width: 100%;
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 25pt;
+}
+
+.big {
+  height: 200vh;
+}
+
+.itemsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+}

@@ -1,0 +1,33 @@
+.link {
+  font-size: larger;
+  display: flex;
+}
+
+.link:hover {
+  background-color: rgb(244, 238, 231);
+}
+
+.navContent {
+  list-style-type: none;
+  width: 100%;
+  margin: 0.5rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  /* position: sticky; */
+  top: 0px;
+  justify-content: center;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 1rem;
+}

@@ -1,9 +1,13 @@
+import "./ItemCard.css";
+
 function ItemCard({ item }) {
   return (
-    <div>
+    <div className="itemWrapper">
       <h3>{item.name}</h3>
-      <span>{item.price}</span>
-      <img src={item.image} />
+      <p>{item.price}</p>
+      <div className="imgWrapper">
+        <img className="itemImg" src={item.image} alt={item.name} />
+      </div>
     </div>
   );
 }

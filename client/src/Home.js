@@ -19,10 +19,8 @@ function Home() {
     <div className="wrapper">
       <div className="carousel">carousel here</div>
 
-      <div className="itemsWrapper">
-        <h2>All Items</h2>
-        <div className="big">{renderItems}</div>
-      </div>
+      <h2>All Items</h2>
+      <div className="itemsWrapper">{renderItems}</div>
     </div>
   );
 }

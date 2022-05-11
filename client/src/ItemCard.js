@@ -1,9 +1,16 @@
 import "./ItemCard.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ItemCard({ item, setCart }) {
   const [showInfo, setShowInfo] = useState(false);
   const [inCart, setInCart] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/instruments/" + item.id)
+      .then((r) => r.json())
+      .then((data) => setReviews(data.reviews));
+  });
 
   function handleAddToCart() {
     if (inCart) {
@@ -15,6 +22,10 @@ function ItemCard({ item, setCart }) {
       setInCart(true);
     }
   }
+
+  const renderReviews = reviews.map((review) => {
+    return <div key={review.id}>{review.description}</div>;
+  });
 
   return (
     <div className={showInfo ? "itemWrapper showInfo" : "itemWrapper"}>
@@ -36,6 +47,8 @@ function ItemCard({ item, setCart }) {
       >
         {showInfo ? "<" : ">"}
       </button>
+
+      {renderReviews}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import "./ItemCard.css";
 import { useState } from "react";
 
 function ItemCard({ item, setCart }) {
-  const [selected, setSelected] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [inCart, setInCart] = useState(false);
 
   function handleAddToCart() {
@@ -17,17 +17,24 @@ function ItemCard({ item, setCart }) {
   }
 
   return (
-    <div
-      // onClick={() => setSelected(!selected)}
-      className={selected ? "itemWrapper selected" : "itemWrapper"}
-    >
+    <div className={showInfo ? "itemWrapper showInfo" : "itemWrapper"}>
       <h3>{item.name}</h3>
       <p>${item.price}</p>
       <div className="imgWrapper">
         <img className="itemImg" src={item.image} alt={item.name} />
       </div>
-      <button onClick={handleAddToCart}>
-        {inCart ? "Remove from Cart" : "Add to Cart"}
+      <button
+        className={inCart ? "cartBtn added" : "cartBtn"}
+        onClick={handleAddToCart}
+      >
+        {inCart ? "-" : "+"}
+      </button>
+
+      <button
+        className={showInfo ? "cartBtn added infoBtn" : "cartBtn infoBtn"}
+        onClick={() => setShowInfo(!showInfo)}
+      >
+        {showInfo ? "<" : ">"}
       </button>
     </div>
   );

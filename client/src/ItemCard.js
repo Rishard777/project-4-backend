@@ -1,4 +1,4 @@
-function itemCard({ item }) {
+function ItemCard({ item }) {
   return (
     <div>
       <h3>{item.name}</h3>
@@ -8,4 +8,4 @@ function itemCard({ item }) {
   );
 }
 
-export default itemCard;
+export default ItemCard;

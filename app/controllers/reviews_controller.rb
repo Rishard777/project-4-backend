@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_response
 
+# before_action :is_admin, only: [:destroy]
+
     def index
         render json: Review.all
     end

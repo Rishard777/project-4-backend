@@ -1,18 +1,34 @@
 import "./Account.css";
 import { useState } from "react";
 
-function Account(loggedIn, setLoggedIn) {
+function Account({ loggedIn, setLoggedIn }) {
   const [createAccount, setCreateAccount] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleSignIn(e) {
     e.preventDefault();
-
     setLoggedIn(true);
+
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    };
+
+    fetch("localhost:3000/users", config)
+      .then((r) => r.json())
+      .then(console.log("logged in"));
   }
 
   return (
     <div className="accountWrapper">
-      {!loggedIn ? (
+      {loggedIn ? (
         <h2>logged In!</h2>
       ) : (
         <div>
@@ -21,11 +37,15 @@ function Account(loggedIn, setLoggedIn) {
 
             <input
               type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="searchbar login"
               placeholder={createAccount ? "Set Username" : "Username"}
             />
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="searchbar login"
               placeholder={createAccount ? "Set Password" : "Password"}
             />

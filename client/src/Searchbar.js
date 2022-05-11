@@ -1,6 +1,6 @@
 import "./Searchbar.css";
 
-function Searchbar() {
+function Searchbar({ searchTerm, setSearchTerm }) {
   return (
     <form className="searchWrapper">
       <select
@@ -16,7 +16,13 @@ function Searchbar() {
         <option value="misc">Misc.</option>
       </select>
 
-      <input className="searchbar" type="text" placeholder="Search..." />
+      <input
+        className="searchbar"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        type="text"
+        placeholder="Search..."
+      />
 
       <button className="searchbar searchBtn" type="submit">
         Submit

@@ -8,6 +8,7 @@
 .accountWrapper div > div {
   display: flex;
   flex-direction: column;
+  background-color: rgb(169, 74, 26);
 }
 
 .login {

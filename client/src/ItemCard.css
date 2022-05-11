@@ -2,18 +2,25 @@
   border: 1px solid rgba(128, 128, 128, 0);
   width: 25%;
   height: 40vw;
+  background-color: white;
+}
+
+.itemWrapper > h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 0.5rem;
 }
 
 .itemWrapper:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 1px solid rgba(128, 128, 128, 0.5);
   cursor: pointer;
+  z-index: 9;
 }
 
 .itemImg {
   object-fit: cover;
   width: 95%;
-  height: 70%;
   overflow: hidden;
 }
 
@@ -21,5 +28,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 70%;
+}
+
+.selected {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.selected .imgWrapper {
+  width: 25%;
 }

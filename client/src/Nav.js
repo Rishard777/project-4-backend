@@ -8,6 +8,8 @@ import { useState } from "react";
 
 function Nav() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <Router>
@@ -18,7 +20,7 @@ function Nav() {
               <Link to="/">Home</Link>
             </div>
 
-            <Searchbar />
+            <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
             <div className="link">
               <Link to="/account">Account</Link>
@@ -35,10 +37,10 @@ function Nav() {
             <Account loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/cart">
-            <Cart />
+            <Cart cart={cart} setCart={setCart} />
           </Route>
           <Route path="/">
-            <Home />
+            <Home setCart={setCart} searchTerm={searchTerm} />
           </Route>
         </Switch>
       </div>

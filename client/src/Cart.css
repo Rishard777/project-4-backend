@@ -1,0 +1,12 @@
+.cartWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartStats {
+  background-color: white;
+  width: 20%;
+  height: 80vh;
+  position: sticky;
+  top: 10vh;
+}

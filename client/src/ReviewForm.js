@@ -11,11 +11,12 @@ function ReviewForm({ item }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         description: newReview,
-        "instrument.id": item.id,
+        instrument_id: item.id,
+        user_id: 1,
       }),
     };
 
-    fetch("http://localhost3000/reviews", config)
+    fetch("http://localhost:3000/reviews", config)
       .then((r) => r.json())
       .then((res) => console.log(res));
   }

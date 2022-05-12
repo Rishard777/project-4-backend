@@ -6,20 +6,17 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
 
         if user&.authenticate(params[:password])
             session[:current_user] = user.id
-            # session[:login_attempts] = 0
-            render json: user, status: :ok
+            render json: {user: "Check out our instruments!"}, status: :ok
         else
-            # session[:login_attempts] ||= 0
-            # session[:login_attempts] += 1
-
+            # render json: {error: "Invalid username and/or password"}, status: :unprocessable_entity
             render json: {error: "Invalid username and/or password"}, status: :unauthorized
             
         end
     end
 
-    def logout
-        session.delete :current_user
-    end
+    # def logout
+    #     session.delete :current_user
+    # end
 
     private
     def record_not_found_response(exception)

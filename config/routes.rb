@@ -2,12 +2,11 @@ Rails.application.routes.draw do
   
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :instruments, only: [:index, :show]
-  resources :users
+  resources :users, only: [:index, :show, :update, :create, :destroy]
 
   get '/authorized_user', to: 'users#show'
 
   post '/login', to: 'sessions#login'
-  delete 'logout', to: 'sessions#logout'
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

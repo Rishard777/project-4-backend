@@ -1,6 +1,6 @@
 puts "🏕 Seeding users..."
-user1 = User.create(name: 'Rishard', admin: true, email: 'rishard@gmail.com', password: 'password')
-user2 = User.create(name: 'Asher', admin: true, email: 'asher@gmail.com', password: 'password')
+user1 = User.create(name: 'Rishard', admin: true, password: 'password')
+user2 = User.create(name: 'Asher', admin: true, password: 'password')
 
 puts "🏕 Seeding instruments..."
 instrument1 = Instrument.create(name: '3D Printed Guitar', image: 'https://inspirationfeeed.files.wordpress.com/2013/04/272352196572485399_02dc48c607171.jpg', price: 699.59)

@@ -4,6 +4,7 @@
   height: 40vw;
   background-color: white;
   display: flex;
+  justify-content: space-between;
 }
 
 .itemWrapper h3 {
@@ -16,6 +17,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 1px solid rgba(128, 128, 128, 0.5);
   z-index: 9;
+  transition: 0.5s;
 }
 
 .itemImg {
@@ -37,10 +39,6 @@
   border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
-/* .showInfo .imgWrapper {
-  width: 25%;
-} */
-
 .cartBtn {
   height: 70px;
   width: 70px;
@@ -56,4 +54,6 @@
 
 .reviewWrapper {
   display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
 }

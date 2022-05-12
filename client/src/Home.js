@@ -21,8 +21,6 @@ function Home({ setCart, searchTerm }) {
 
   return (
     <div className="wrapper">
-      <div className="carousel">carousel here</div>
-
       <h2>All Items</h2>
       <div className="itemsWrapper">{renderItems}</div>
     </div>

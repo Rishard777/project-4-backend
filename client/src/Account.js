@@ -13,10 +13,10 @@ function Account({ loggedIn, setLoggedIn }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({username}),
+      body: JSON.stringify({ username }),
     })
-    .then((r) => r.json())
-    .then((user) => setLoggedIn(user));
+      .then((r) => r.json())
+      .then((user) => setLoggedIn(user));
   }
 
   // function handleSignIn(e) {
@@ -37,7 +37,7 @@ function Account({ loggedIn, setLoggedIn }) {
   //   fetch("http://localhost:3000/users", config)
   //     .then((r) => r.json())
   //     .then(console.log("logged in"));
-// }
+  // }
 
   return (
     <div className="accountWrapper">

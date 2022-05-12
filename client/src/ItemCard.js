@@ -1,5 +1,7 @@
 import "./ItemCard.css";
 import { useState, useEffect } from "react";
+import Reviews from "./Reviews";
+import ReviewForm from "./ReviewForm";
 
 function ItemCard({ item, setCart }) {
   const [showInfo, setShowInfo] = useState(false);
@@ -23,32 +25,35 @@ function ItemCard({ item, setCart }) {
     }
   }
 
-  const renderReviews = reviews.map((review) => {
-    return <div key={review.id}>{review.description}</div>;
-  });
-
   return (
     <div className={showInfo ? "itemWrapper showInfo" : "itemWrapper"}>
-      <h3>{item.name}</h3>
-      <p>${item.price}</p>
-      <div className="imgWrapper">
-        <img className="itemImg" src={item.image} alt={item.name} />
+      <div>
+        <h3>{item.name}</h3>
+        <p>${item.price}</p>
+        <div className="imgWrapper">
+          <img className="itemImg" src={item.image} alt={item.name} />
+        </div>
+        <button
+          className={inCart ? "cartBtn added" : "cartBtn"}
+          onClick={handleAddToCart}
+        >
+          {inCart ? "-" : "+"}
+        </button>
+
+        <button
+          className={showInfo ? "cartBtn added infoBtn" : "cartBtn infoBtn"}
+          onClick={() => setShowInfo(!showInfo)}
+        >
+          {showInfo ? "<" : ">"}
+        </button>
       </div>
-      <button
-        className={inCart ? "cartBtn added" : "cartBtn"}
-        onClick={handleAddToCart}
-      >
-        {inCart ? "-" : "+"}
-      </button>
 
-      <button
-        className={showInfo ? "cartBtn added infoBtn" : "cartBtn infoBtn"}
-        onClick={() => setShowInfo(!showInfo)}
-      >
-        {showInfo ? "<" : ">"}
-      </button>
-
-      {renderReviews}
+      {showInfo ? (
+        <div className="reviewWrapper">
+          <Reviews reviews={reviews} />
+          <ReviewForm item={item} />
+        </div>
+      ) : null}
     </div>
   );
 }

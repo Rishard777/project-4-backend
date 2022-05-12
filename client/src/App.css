@@ -13,3 +13,7 @@ p,
 span {
   margin-left: 0.5rem;
 }
+
+button {
+  cursor: pointer;
+}

@@ -8,23 +8,36 @@ function Account({ loggedIn, setLoggedIn }) {
 
   function handleSignIn(e) {
     e.preventDefault();
-    setLoggedIn(true);
-
-    const config = {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    };
-
-    fetch("localhost:3000/users", config)
-      .then((r) => r.json())
-      .then(console.log("logged in"));
+      body: JSON.stringify({username}),
+    })
+    .then((r) => r.json())
+    .then((user) => setLoggedIn(user));
   }
+
+  // function handleSignIn(e) {
+  //   e.preventDefault();
+  //   setLoggedIn(true);
+
+  //   const config = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       password,
+  //     }),
+  //   }
+
+  //   fetch("http://localhost:3000/users", config)
+  //     .then((r) => r.json())
+  //     .then(console.log("logged in"));
+// }
 
   return (
     <div className="accountWrapper">

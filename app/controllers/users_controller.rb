@@ -9,8 +9,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_response
     end
 
     def show
-        # user = User.find(params[:id])
-        # render json: user, status: :ok
         current_user = User.find_by(id: session[:current_user])
         render json: current_user
     end

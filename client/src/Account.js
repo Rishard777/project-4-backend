@@ -49,7 +49,7 @@ function Account( {onLogin}) {
 
   return (
     <div className="accountWrapper">
-     
+     <h1 className="sign_in">Sign in to shop R&A Instruments!</h1>
         <div>
           <form>
             <h3>{createAccount ? "Create an Account" : "Sign In"}</h3>

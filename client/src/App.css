@@ -1,10 +1,14 @@
+@font-face {
+  font-family: "Pacifico-Regular";
+  src: url(./Pacifico-Regular.ttf);
+}
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: rgb(251, 245, 238);
+  background-color: gray;
 }
 
 h3,
@@ -17,4 +21,10 @@ span {
 button {
   cursor: pointer;
   transition: 0.3s;
+}
+
+.welcome_message{
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
 }

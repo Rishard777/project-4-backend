@@ -25,7 +25,7 @@ function Nav( {onLogout}) {
               <Link to="/">Home</Link>
             </div>
 
-            <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <Searchbar className="search_bar" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
             <div className="link">
               <Link to="/account">Account</Link>

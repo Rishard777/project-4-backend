@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
       <Nav user={user} onLogout={handleLogout} />
-      <h1> Welcome, {user.name}, Check out our Instruments on the Home Page!</h1>
+      <h1 className="welcome_message"> Welcome, {user.name}! Check out our Instruments on the Home Page!</h1>
     </div>
   )}
   else {

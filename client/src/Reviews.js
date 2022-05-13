@@ -1,17 +1,8 @@
+import Review from "./Review";
+
 function Reviews({ reviews }) {
   const renderReviews = reviews.map((review) => {
-    function handleDelete() {
-      fetch("http://localhost:3000/reviews/" + review.id, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    return (
-      <li key={review.id}>
-        "{review.description}"<button onClick={handleDelete}>X</button>
-      </li>
-    );
+    return <Review review={review} />;
   });
 
   return <ul>{renderReviews}</ul>;

@@ -2,15 +2,18 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_response
 
-# before_action :authorize_user, except: [:create]
 
     def index
         render json: User.all
     end
 
     def show
-        current_user = User.find_by(id: session[:current_user])
-        render json: current_user
+        user = User.find_by(id: session[:current_user])
+        if user
+            render json: current_user
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
 
     def create

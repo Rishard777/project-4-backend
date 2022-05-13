@@ -1,51 +1,57 @@
 import "./Account.css";
 import { useState } from "react";
 
-function Account({ loggedIn, setLoggedIn }) {
+function Account() {
   const [createAccount, setCreateAccount] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [errors, setErrors] = useState([])
+
   function handleSignIn(e) {
     e.preventDefault();
+    const user = {
+      username: username,
+      password
+    }
     fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({username}),
+      body: JSON.stringify(user),
     })
-    .then((r) => r.json())
-    .then((user) => setLoggedIn(user));
+    .then(res => res.json())
+        .then(json => {
+          console.log(json)
+          if(json.errors) setErrors(json.errors)
+        })
   }
 
-  // function handleSignIn(e) {
-  //   e.preventDefault();
-  //   setLoggedIn(true);
-
-  //   const config = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       username,
-  //       password,
-  //     }),
-  //   }
-
-  //   fetch("http://localhost:3000/users", config)
-  //     .then((r) => r.json())
-  //     .then(console.log("logged in"));
-// }
+  function handleSignUp(e) {
+    e.preventDefault()
+    const user = {
+        name: username,
+        password
+    }
+   
+    fetch(`http://localhost:3000/users`,{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body:JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(json => {
+        console.log(json)
+        if(json.errors) setErrors(Object.entries(json.errors))
+      })
+  }
 
   return (
     <div className="accountWrapper">
-      {loggedIn ? (
-        <h2>logged In!</h2>
-      ) : (
+     
         <div>
-          <form onSubmit={handleSignIn}>
+          <form>
             <h3>{createAccount ? "Create an Account" : "Sign In"}</h3>
 
             <input
@@ -62,11 +68,17 @@ function Account({ loggedIn, setLoggedIn }) {
               className="searchbar login"
               placeholder={createAccount ? "Set Password" : "Password"}
             />
-
-            <button type="submit" className="searchbar login">
+            
+            {createAccount ? 
+      (<button  className="searchbar login" onClick={handleSignUp}>CreateAccount</button>) :
+      (<button  className="searchbar login" onClick={handleSignIn}>Login</ button>)
+      }
+            {/* <button type="submit" className="searchbar login">
               {createAccount ? "Create Account" : "Login"}
-            </button>
+            </button> */}
           </form>
+
+          {errors ? <div>{errors}</div> : null}
 
           <div>
             <h3>
@@ -82,7 +94,7 @@ function Account({ loggedIn, setLoggedIn }) {
             </button>
           </div>
         </div>
-      )}
+      
     </div>
   );
 }

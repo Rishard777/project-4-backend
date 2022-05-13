@@ -70,10 +70,10 @@ function Account( {onLogin}) {
             />
             
             {createAccount ? 
-      (<button  type ="submit" className="searchbar login" onSubmit={handleSignUp}>CreateAccount</button>) :
-      (<button  type ="submit" className="searchbar login" onSubmit={handleSignIn}>Login</ button>)
+      (<button  className="searchbar login" onClick={handleSignUp}>CreateAccount</button>) :
+      (<button  className="searchbar login" onClick={handleSignIn}>Login</ button>)
       }
-            
+ 
           </form>
         
           {errors ? <div>{errors}</div> : null}

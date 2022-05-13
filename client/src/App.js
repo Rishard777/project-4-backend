@@ -1,6 +1,5 @@
 import "./App.css";
 import Nav from "./Nav.js";
-import Home from "./Home";
 import Account from "./Account";
 import { useState, useEffect } from "react";
 
@@ -30,7 +29,7 @@ function App() {
     </div>
   )}
   else {
-    return <Account onLogin={handleLogin}/>
+    return <Account onLogin={handleLogin} />
   }
 }
 

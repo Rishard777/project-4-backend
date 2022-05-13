@@ -1,15 +1,3 @@
-.carousel {
-  height: 500px;
-  width: 100%;
-  border: 1px solid grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: larger;
-  background-color: white;
-  display: none;
-}
-
 .wrapper {
   display: flex;
   justify-content: center;

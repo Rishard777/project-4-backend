@@ -6,10 +6,15 @@ import Cart from "./Cart";
 import Searchbar from "./Searchbar";
 import { useState } from "react";
 
-function Nav() {
-  const [loggedIn, setLoggedIn] = useState(false);
+function Nav( {onLogout}) {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout());
+  }
 
   return (
     <Router>
@@ -29,12 +34,16 @@ function Nav() {
             <div className="link">
               <Link to="/cart">Cart</Link>
             </div>
+
+            <div>
+            <button onClick={handleLogout}>Logout</button>
+            </div>
           </div>
         </nav>
 
         <Switch>
           <Route path="/account">
-            <Account loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Account />
           </Route>
           <Route path="/cart">
             <Cart cart={cart} setCart={setCart} />

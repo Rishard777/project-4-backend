@@ -1,7 +1,7 @@
 import "./Account.css";
 import { useState } from "react";
 
-function Account() {
+function Account( {onLogin}) {
   const [createAccount, setCreateAccount] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,11 +21,11 @@ function Account() {
       },
       body: JSON.stringify(user),
     })
-    .then(res => res.json())
-        .then(json => {
-          console.log(json)
-          if(json.errors) setErrors(json.errors)
-        })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      }
+    });
   }
 
   function handleSignUp(e) {

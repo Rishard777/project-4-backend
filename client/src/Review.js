@@ -22,16 +22,27 @@ function Review({ review }) {
       .then((r) => setShowEdit(false));
   }
   return (
-    <li key={review.id}>
-      "{review.description}"<button onClick={handleDelete}>X</button>
-      {showEdit ? (
-        <form onSubmit={handleEdit}>
-          <input value={edit} onChange={(e) => setEdit(e.target.value)} />
-          <button>edit review</button>
-        </form>
-      ) : (
-        <button onClick={() => setShowEdit(!showEdit)}>Edit</button>
-      )}
+    <li key={review.id} className="revLi">
+      "{review.description}"
+      <div>
+        <button className="rev" onClick={handleDelete}>
+          X
+        </button>
+        {showEdit ? (
+          <form onSubmit={handleEdit}>
+            <input
+              className="revIn"
+              value={edit}
+              onChange={(e) => setEdit(e.target.value)}
+            />
+            <button className="rev">edit review</button>
+          </form>
+        ) : (
+          <button className="rev" onClick={() => setShowEdit(!showEdit)}>
+            Edit
+          </button>
+        )}
+      </div>
     </li>
   );
 }

@@ -1,5 +1,3 @@
-
-
 .link {
   font-size: larger;
   display: flex;
@@ -11,8 +9,13 @@
   transition: 0.3s;
 }
 
-.navContent {
+.logout {
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+  font-size: 14pt;
+}
 
+.navContent {
   list-style-type: none;
   width: 100%;
   margin: 0.5rem 5rem;
@@ -27,10 +30,10 @@ nav {
   background-image: url(https://media4.giphy.com/media/JoVV55m3KZHdxlpFZ6/giphy.gif?cid=ecf05e47z3vz8buneyfzyctbusvjf24njwevx0y6a17cvnve&rid=giphy.gif);
 }
 
-a {
+a,
+.logout {
   text-decoration: none;
   font-weight: bold;
   color: white;
   padding: 1rem;
 }
-

@@ -23,8 +23,31 @@ button {
   transition: 0.3s;
 }
 
-.welcome_message{
+.welcome_message {
   margin: auto;
   text-align: center;
   padding-top: 100px;
+}
+
+.rev {
+  border: none;
+  border-radius: 5px;
+  margin: 0 0.1rem;
+}
+
+.rev:hover {
+  background-color: aquamarine;
+}
+.revForm {
+  padding-top: 100px;
+}
+
+.revLi {
+  display: flex;
+  justify-content: space-between;
+}
+
+.revIn {
+  padding: 0;
+  width: 100px;
 }

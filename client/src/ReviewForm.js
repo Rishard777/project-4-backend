@@ -22,7 +22,7 @@ function ReviewForm({ item }) {
   }
 
   return (
-    <form onSubmit={handleReviewSubmit}>
+    <form onSubmit={handleReviewSubmit} className="revForm">
       <input
         className="searchbar input"
         type="text"

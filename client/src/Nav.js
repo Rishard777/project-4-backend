@@ -6,7 +6,7 @@ import Cart from "./Cart";
 import Searchbar from "./Searchbar";
 import { useState } from "react";
 
-function Nav( {onLogout}) {
+function Nav({ onLogout }) {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -25,7 +25,11 @@ function Nav( {onLogout}) {
               <Link to="/">Home</Link>
             </div>
 
-            <Searchbar className="search_bar" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <Searchbar
+              className="search_bar"
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+            />
 
             <div className="link">
               <Link to="/account">Account</Link>
@@ -35,8 +39,10 @@ function Nav( {onLogout}) {
               <Link to="/cart">Cart</Link>
             </div>
 
-            <div>
-            <button onClick={handleLogout}>Logout</button>
+            <div className="link">
+              <button className="logout" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
           </div>
         </nav>

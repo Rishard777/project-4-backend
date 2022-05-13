@@ -5,7 +5,7 @@
 }
 
 .searchbar:hover {
-  background-color: gray;
+  background-color: rgb(184, 184, 184);
   transition: 0.3s;
 }
 

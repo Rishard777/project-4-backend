@@ -6,6 +6,7 @@ function Account( {onLogin}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [error, setError] = useState([])
   const [errors, setErrors] = useState([])
 
   function handleSignIn(e) {
@@ -23,7 +24,10 @@ function Account( {onLogin}) {
     })
     .then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json()
+        .then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setError(err.error));
       }
     });
   }
@@ -73,10 +77,10 @@ function Account( {onLogin}) {
       (<button  className="searchbar login" onClick={handleSignUp}>CreateAccount</button>) :
       (<button  className="searchbar login" onClick={handleSignIn}>Login</ button>)
       }
- 
-          </form>
-        
+          {error ? <div>{error}</div> : null}
           {errors ? <div>{errors}</div> : null}
+          </form>
+          
 
           <div>
             <h3>
